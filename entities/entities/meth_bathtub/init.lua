@@ -112,26 +112,30 @@ function ENT:Touch(hitEnt)
 			self.Entity:SetNWBool("hasIodine", true)
 			hitEnt:Remove()
 		end
+		startMixing()
 	end
 	if hitEnt:GetClass() == "bleach" then
 		if !self.Entity:GetNWBool("hasBleach") then
 			self.Entity:SetNWBool("hasBleach", true)
 			hitEnt:Remove()
 		end
+		startMixing()
 	end
 	if hitEnt:GetClass() == "kitty_litter" then
 		if !self.Entity:GetNWBool("hasLiter") then
 			self.Entity:SetNWBool("hasLiter", true)
 			hitEnt:Remove()
 		end
+		startMixing()
 	end
 	if hitEnt:GetClass() == "water_bottle" then
 		if !self.Entity:GetNWBool("hasWater") then
 			self.Entity:SetNWBool("hasWater", true)
 			hitEnt:Remove()
 		end
+		startMixing()
 	end
-	startMixing()
+	
 
 end
 
