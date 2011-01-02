@@ -8,7 +8,7 @@ AddCSLuaFile("shared.lua")
 include("shared.lua")
 
 function ENT:Initialize()
-	self.Entity:SetModel("models/props_misc/flour_sack-1.mdl")
+	self.Entity:SetModel("models/props_junk/plasticbucket001a.mdl")
 	self.Entity:PhysicsInit(SOLID_VPHYSICS)
 	self.Entity:SetMoveType(MOVETYPE_VPHYSICS)
 	self.Entity:SetSolid(SOLID_VPHYSICS)
