@@ -26,7 +26,7 @@ function ENT:Initialize()
 
 end
 
-function killTimers()
+function ENT:killTimers()
 	if self.Entity:GetNWBool("done") then
 		timer.Destroy("Stage2_"..self:EntIndex())
 		timer.Destroy("Stage3_"..self:EntIndex())
@@ -38,12 +38,14 @@ function killTimers()
 	end
 end
 
-function startMixing()
+function ENT:startMixing()
 	if (self.Entity:GetNWBool("hasIodine") and self.Entity:GetNWBool("hasBleach") and self.Entity:GetNWBool("hasLiter") and self.Entity:GetNWBool("hasWater")) then
+		print("ready")
 		self.Entity:GetNWBool("readyToMix")
 	end
 	
 	if self.Entity:GetNWBool("readyToMix") then
+			print("Mixing")
 			local effectdata = EffectData()
 			util.Effect("Sparks", effectdata)
 			self.Entity:SetModel("models/props_c17/FurnitureBathtub001a.mdl")
@@ -75,6 +77,7 @@ function startMixing()
 			timer.Create("Stage8_"..self:EntIndex(), 10, 1, function()
 				self.Entity:SetModel("models/props_c17/FurnitureBathtub001a.mdl")
 				self.Entity:SetNWBool("done", true)
+				util.Effect("Sparks", effectdata)
 			end)
 			
 	end
@@ -95,7 +98,7 @@ end
 
 function ENT:Use()
 	if self.Entity:GetNWBool("done") then
-		killTimers()
+		print("Making")
 		self.Entity:SetNWBool("done", false)
 		self.Entity:SetModel("models/props_c17/FurnitureBathtub001a.mdl")
 		local SpawnPos = self.Entity:GetPos()
