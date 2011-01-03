@@ -526,7 +526,7 @@ function GM:HUDPaint()
 
 	local hx = 9
 	local hy = ScrH() - 30
-	local hw = 190
+	local hw = ScrW()/5.5
 	local hh = 10
 	
 	if SELF:GetActiveWeapon().IAmControlling then return end
@@ -534,10 +534,17 @@ function GM:HUDPaint()
 	local Healthbackgroundcolor = Color(Healthbackgroundr:GetInt(), Healthbackgroundg:GetInt(), Healthbackgroundb:GetInt(), Healthbackgrounda:GetInt())
 	local Healthforegroundcolor = Color(Healthforegroundr:GetInt(), Healthforegroundg:GetInt(), Healthforegroundb:GetInt(), Healthforegrounda:GetInt())
 	local HealthTextColor = Color( HealthTextr:GetInt(), HealthTextg:GetInt(), HealthTextb:GetInt(), HealthTexta:GetInt())
-	draw.RoundedBox(6, hx - 8, hy - 90, hw + 30, hh + 110, backgroundcolor)
+	draw.RoundedBox(6, hx - 8, hy - 12, ScrW(), 35, backgroundcolor)
 
-	draw.RoundedBox(6, hx - 4, hy - 4, hw + 8, hh + 8, Healthbackgroundcolor)
-
+	draw.RoundedBox(6, hx - 4, hy - 4, ScrW()/5.5 , hh + 8, Healthbackgroundcolor)
+	draw.RoundedBox(6, hx + ScrW()/5.5+((ScrW()/5)-(ScrW()/5.5)), hy - 4, ScrW()/5.5 , hh + 8, Healthbackgroundcolor)
+	draw.RoundedBox(6, hx + ScrW()/5.5*2+((ScrW()/5)-(ScrW()/5.5))*2, hy - 4, ScrW()/5.5 , hh + 8, Healthbackgroundcolor)
+	draw.RoundedBox(6, hx + ScrW()/5.5*3+((ScrW()/5)-(ScrW()/5.5))*3, hy - 4, ScrW()/5.5 , hh + 8, Healthbackgroundcolor)
+	draw.RoundedBox(6, hx + ScrW()/5.5*4+((ScrW()/5)-(ScrW()/5.5))*4, hy - 4, ScrW()/5.5 , hh + 8, Healthbackgroundcolor)
+	if LocalPlayer():Armor() > 0 then
+			draw.RoundedBox(4, hx + ScrW()/5.5+((ScrW()/5)-(ScrW()/5.5))+5, hy, math.Clamp(ScrW()/580 * LocalPlayer():Armor(), 0, ScrW()/5.8), hh, Color(0,0,255,255))
+	end
+			
 	if Health ~= OldHealth then
 		ChangeHealth(OldHealth, Health)
 		OldHealth = Health
@@ -546,7 +553,7 @@ function GM:HUDPaint()
 	if ShowHealth > 0 then
 		local max = GetConVarNumber("startinghealth")
 		if max == 0 then max = 100 end
-		draw.RoundedBox(4, hx, hy, math.Clamp(hw * (ShowHealth / max), 0, hw), hh, Healthforegroundcolor)
+		draw.RoundedBox(4, hx, hy, math.Clamp(ScrW()/5.8 * (ShowHealth / max), 0, ScrW()/5.8), hh, Healthforegroundcolor)
 	end
 	
 	if oldmoney ~= money then
@@ -559,11 +566,13 @@ function GM:HUDPaint()
 	local Salary1color = Color(salary1r:GetInt(), salary1g:GetInt(), salary1b:GetInt(), salary1a:GetInt())
 	local Salary2color = Color(salary2r:GetInt(), salary2g:GetInt(), salary2b:GetInt(), salary2a:GetInt())
 	draw.DrawText(math.Max(0, math.Round(ShowHealth)), "TargetID", hx + hw / 2, hy - 6, HealthTextColor, 1)
-	draw.DrawText(LANGUAGE.job .. job .. "\n"..LANGUAGE.wallet .. CUR .. money .. "", "TargetID", hx + 1, hy - 49, job1color, 0)
-	draw.DrawText(LANGUAGE.job .. job .. "\n"..LANGUAGE.wallet .. CUR .. money .. "", "TargetID", hx, hy - 50, job2color, 0)
-	draw.DrawText("\n"..LANGUAGE.wallet .. CUR .. money .. "", "TargetID", hx, hy - 50, Color(255,255,255,MoneyChangeAlpha), 0)
-	draw.DrawText(LANGUAGE.salary .. CUR .. salary, "TargetID", hx + 1, hy - 70, Salary1color, 0)
-	draw.DrawText(LANGUAGE.salary .. CUR .. salary, "TargetID", hx, hy - 71, Salary2color, 0)
+	draw.DrawText(LANGUAGE.job .. job, "TargetID", (hx + ScrW()/5.5*2+((ScrW()/5)-(ScrW()/5.5))*2) + 30 + 1, hy - 6, Salary1color, 0)
+	draw.DrawText(LocalPlayer():Armor(), "TargetID", (hx + ScrW()/5.5+((ScrW()/5)-(ScrW()/5.5))) + (ScrW()/5.5/2) + 1, hy - 6, HealthTextColor, 0)
+	draw.DrawText(LANGUAGE.wallet .. CUR .. money .. "", "TargetID", (hx + ScrW()/5.5*4+((ScrW()/5)-(ScrW()/5.5))*4) + 30 + 1, hy - 6, Salary1color, 0)
+	--draw.DrawText(LANGUAGE.job .. job .. "\n"..LANGUAGE.wallet .. CUR .. money .. "", "TargetID", hx, hy - 50, job2color, 0)
+	draw.DrawText("\n"..LANGUAGE.wallet .. CUR .. money .. "", "TargetID", (hx + ScrW()/5.5*4+((ScrW()/5)-(ScrW()/5.5))*4) + 30 + 1, hy - 6, Color(255,255,255,MoneyChangeAlpha), 0)
+	draw.DrawText(LANGUAGE.salary .. CUR .. salary, "TargetID", (hx + ScrW()/5.5*3+((ScrW()/5)-(ScrW()/5.5))*3) + 30 + 1, hy - 6, Salary1color, 0)
+	--draw.DrawText(LANGUAGE.salary .. CUR .. salary, "TargetID", hx + ScrW()/5.5*3+((ScrW()/5)-(ScrW()/5.5))*3 + (ScrW()/5.5/2), hy - 5, Salary2color, 0)
 
 	if LetterAlpha > -1 then
 		if LetterY > ScrH() * .25 then
@@ -705,7 +714,7 @@ function GM:HUDPaint()
 	end
 	
 	DrawAttachmentAndPrinterAndEntInfo(LocalPlayer():GetEyeTrace())
-	DrawiDarkRPHUD()
+	--DrawiDarkRPHUD()
 end
 
 function GM:HUDShouldDraw(name)
