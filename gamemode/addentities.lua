@@ -53,8 +53,9 @@ AddEntity("Printer Hasher", "hash_atch", "models/Items/combine_rifle_ammo01.mdl"
 AddEntity("Printer Battery", "bat_atch", "models/props_lab/reciever01d.mdl", 300, 100, "/buyprinterbattery")
 AddEntity("Printer Enhancer", "en_atch", "models/props_lab/tpplug.mdl", 500, 100, "/buyprinterenhancer")
 
-AddCustomVehicle("Jeep", "models/buggy.mdl", 1000 )
+AddCustomVehicle("Jeep", "models/buggy.mdl", 800 )
 AddCustomVehicle("Airboat", "models/airboat.mdl", 500)
+AddCustomVehicle("Jalopy", "models/models/vehicle.mdl", 1000)
 
 /*
 How to add custom vehicles:
