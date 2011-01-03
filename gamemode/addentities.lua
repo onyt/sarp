@@ -131,12 +131,12 @@ AddCustomShipment("Mac10", "models/weapons/w_smg_mac10.mdl", "weapon_mad_mac10",
 
 -- Pistols/Knife
 AddCustomShipment("Crowbar", "models/weapons/w_crowbar.mdl", "weapon_crowbar", 2300, 10, true, 150, true)
---AddCustomShipment("DualElites", "models/weapons/w_pist_elite_dropped.mdl", "weapon_mad_dual", 2300, 10, true, 210, true, {TEAM_GUN, TEAM_HEAVYARMSDEALER})
---AddCustomShipment("Deagle", "models/weapons/w_pist_deagle.mdl", "weapon_mad_deagle", 2300, 10, true, 230, true, {TEAM_GUN, TEAM_HEAVYARMSDEALER})
---AddCustomShipment("USP", "models/weapons/w_pist_usp.mdl", "weapon_mad_usp", 2200, 10, true, 200, true, {TEAM_GUN, TEAM_HEAVYARMSDEALER})
---AddCustomShipment("P228", "models/weapons/w_pist_p228.mdl", "weapon_mad_p228", 2100, 10, true, 210, true, {TEAM_GUN, TEAM_HEAVYARMSDEALER})
---AddCustomShipment("Glock", "models/weapons/w_pist_glock18.mdl", "weapon_mad_glock", 2000, 10, true, 210, true, {TEAM_GUN, TEAM_HEAVYARMSDEALER})
---AddCustomShipment("FiveSeven", "models/weapons/w_pist_fiveseven.mdl", "weapon_fiveseven2", 1900, 10, true, 210, true, {TEAM_GUN, TEAM_HEAVYARMSDEALER})
+AddCustomShipment("DualElites", "models/weapons/w_pist_elite_dropped.mdl", "weapon_mad_dual", 2300, 10, true, 210, true, {TEAM_GUN, TEAM_HEAVYARMSDEALER})
+AddCustomShipment("Deagle", "models/weapons/w_pist_deagle.mdl", "weapon_mad_deagle", 2300, 10, true, 230, true, {TEAM_GUN, TEAM_HEAVYARMSDEALER})
+AddCustomShipment("USP", "models/weapons/w_pist_usp.mdl", "weapon_mad_usp", 2200, 10, true, 200, true, {TEAM_GUN, TEAM_HEAVYARMSDEALER})
+AddCustomShipment("P228", "models/weapons/w_pist_p228.mdl", "weapon_mad_p228", 2100, 10, true, 210, true, {TEAM_GUN, TEAM_HEAVYARMSDEALER})
+AddCustomShipment("Glock", "models/weapons/w_pist_glock18.mdl", "weapon_mad_glock", 2000, 10, true, 210, true, {TEAM_GUN, TEAM_HEAVYARMSDEALER})
+AddCustomShipment("FiveSeven", "models/weapons/w_pist_fiveseven.mdl", "weapon_fiveseven2", 1900, 10, true, 210, true, {TEAM_GUN, TEAM_HEAVYARMSDEALER})
 -- Other
 AddCustomShipment("Lockpick", "models/weapons/w_crowbar.mdl", "lockpick", 2000, 10, true, 350, true, {TEAM_GANG, TEAM_MOB})
 AddCustomShipment("Keypad Cracker", "models/weapons/w_c4.mdl", "keypad_cracker", 2000, 10, true, 350, true, {TEAM_GANG, TEAM_MOB, TEAM_THIEF})
